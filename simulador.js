@@ -35,5 +35,12 @@ function calcular() {
 
     // mostrar en pantalla el total del prestamo
     mostrarSpam("spnTotalPrestamo", "USD " + total.toFixed(2));
+
+    // invocar a calcularCuotaMensual con el total y el plazo en años
+    let cuotaMensual = calcularCuotaMensual(total, plazo);
+
+    // mostrar en pantalla las cuotas mensuales
+    mostrarSpam("spnCuotaMensual", "USD " + cuotaMensual.toFixed(2));
+
 }
 
