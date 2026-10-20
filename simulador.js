@@ -10,6 +10,13 @@ function calcular() {
     // Llamar a calcularDisponible y guardar el retorno en una variable
     let disponible = calcularDisponible(ingresos, egresos);
 
-    // Mostrar en pantalla
+    // Mostrar en pantalla saldo diponible
     mostrarSpam("spnDisponible", "USD " + disponible.toFixed(2));
+
+    // llamar a calcularCapacidadPago con el disponible que ya se obtuvo
+    let capacidadPago = calcularCapacidadPago(disponible);
+
+    // mostrar en pantalla capacidad de pago 
+    mostrarSpam("spnCapacidadPago", "USD " + capacidadPago.toFixed(2));
 }
+
