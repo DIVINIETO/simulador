@@ -53,3 +53,18 @@ function calcular() {
     }
 }
 
+function reiniciar() {
+    limpiarCaja("txtIngresos");
+    limpiarCaja("txtEgresos");
+    limpiarCaja("txtMonto");
+    limpiarCaja("txtPlazo");
+    limpiarCaja("txtTasaInteres");
+
+    mostrarSpam("spnDisponible", "");
+    mostrarSpam("spnCapacidadPago", "");
+    mostrarSpam("spnInteresPagar", "");
+    mostrarSpam("spnTotalPrestamo", "");
+    mostrarSpam("spnCuotaMensual", "");
+    mostrarSpam("spnEstadoCredito", "");
+}
+

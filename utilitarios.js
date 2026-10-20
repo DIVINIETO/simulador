@@ -23,3 +23,8 @@ function mostrarSpam(idComponente, valor) {
     let componente = document.getElementById(idComponente);
     componente.textContent = valor;
 }
+
+function limpiarCaja(idComponente) {
+    let componente = document.getElementById(idComponente);
+    componente.value = "";
+}
