@@ -1,70 +1,369 @@
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f6f8;
-    margin: 0;
-    padding: 0;
+/* ==========================================================
+   Banco Andino · Simulador de crédito
+   Sin dependencias externas: tipografías del sistema
+   ========================================================== */
+
+:root {
+    --azul-noche: #0e2a47;
+    --azul-medio: #1b4670;
+    --verde-andino: #1f7a7a;
+    --oro: #c79a3b;
+    --oro-oscuro: #a67c24;
+    --niebla: #eef2f4;
+    --papel: #ffffff;
+    --tinta: #1c2733;
+    --tinta-suave: #5b6b7a;
+    --borde: #d3dce3;
+
+    --fuente-titulo: Georgia, "Times New Roman", serif;
+    --fuente-texto: "Segoe UI", system-ui, -apple-system, Roboto, Helvetica, Arial, sans-serif;
+
+    --radio: 12px;
+    --logo-size: 44px;
 }
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: var(--fuente-texto);
+    font-size: 16px;
+    line-height: 1.5;
+    color: var(--tinta);
+    background-color: var(--niebla);
+}
+
+/* ---------- Barra superior y logotipo ---------- */
+
+.topbar {
+    background-color: var(--papel);
+    border-bottom: 3px solid var(--oro);
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    width: min(100%, 720px);
+    margin: 0 auto;
+    padding: 12px 20px;
+    color: var(--azul-noche);
+    text-decoration: none;
+}
+
+.brand-mark {
+    flex: none;
+    width: var(--logo-size);
+    height: var(--logo-size);
+}
+
+.brand-text {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.15;
+}
+
+.brand-text strong {
+    font-family: var(--fuente-titulo);
+    font-size: calc(var(--logo-size) * 0.5);
+    font-weight: 700;
+    letter-spacing: 0.01em;
+}
+
+.brand-text small {
+    font-size: calc(var(--logo-size) * 0.27);
+    color: var(--tinta-suave);
+    letter-spacing: 0.04em;
+}
+
+/* Colores del símbolo (se pueden invertir cambiando solo estas reglas) */
+.lg-front {
+    fill: var(--azul-noche);
+}
+
+.lg-back {
+    fill: var(--verde-andino);
+}
+
+.lg-snow {
+    fill: #ffffff;
+}
+
+.lg-coin {
+    fill: var(--oro);
+}
+
+.lg-coin-ring {
+    fill: none;
+    stroke: #ffffff;
+    stroke-width: 1.4;
+    opacity: 0.85;
+}
+
+.lg-base {
+    fill: none;
+    stroke: var(--oro);
+    stroke-width: 2.4;
+    stroke-linecap: round;
+}
+
+/* ---------- Encabezado con cordillera ---------- */
+
+.hero {
+    background-color: var(--azul-noche);
+    color: #ffffff;
+    text-align: center;
+    padding: 40px 20px 110px;
+    clip-path: polygon(0 0, 100% 0, 100% 78%,
+            88% 90%, 79% 80%, 68% 94%, 57% 82%,
+            46% 96%, 35% 84%, 24% 93%, 13% 82%, 0 92%);
+}
+
+.hero h1 {
+    margin: 0 auto 8px;
+    max-width: 22ch;
+    font-family: var(--fuente-titulo);
+    font-size: clamp(26px, 5vw, 36px);
+    line-height: 1.2;
+    font-weight: 700;
+}
+
+.hero p {
+    margin: 0 auto;
+    max-width: 46ch;
+    color: #c4d3e0;
+}
+
+/* ---------- Contenedor y paneles ---------- */
 
 .container {
-    width: 400px;
-    margin: 40px auto;
-    padding: 20px;
-    background-color: white;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    width: min(100%, 560px);
+    margin: -80px auto 0;
+    padding: 0 16px 32px;
+    position: relative;
 }
 
-h1 {
-    text-align: center;
-    margin-bottom: 20px;
+.panel {
+    background-color: var(--papel);
+    border: 1px solid var(--borde);
+    border-radius: var(--radio);
+    padding: 22px;
+    margin-bottom: 16px;
+    box-shadow: 0 6px 18px rgba(14, 42, 71, 0.08);
 }
 
-h2 {
-    margin-top: 20px;
-    font-size: 18px;
+.panel h2 {
+    margin: 0 0 14px;
+    padding-left: 12px;
+    border-left: 4px solid var(--oro);
+    font-family: var(--fuente-titulo);
+    font-size: 20px;
+    line-height: 1.2;
+    color: var(--azul-noche);
+}
+
+/* ---------- Formulario ---------- */
+
+.grid-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+}
+
+.campo {
+    margin-bottom: 14px;
 }
 
 label {
     display: block;
-    margin-top: 10px;
-    font-weight: bold;
+    margin-bottom: 6px;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--tinta);
 }
 
 input {
     width: 100%;
-    padding: 8px;
-    margin-top: 5px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-    box-sizing: border-box;
+    padding: 11px 12px;
+    font: inherit;
+    color: var(--tinta);
+    background-color: #fafcfd;
+    border: 1px solid var(--borde);
+    border-radius: 8px;
+    transition: border-color 0.15s, box-shadow 0.15s, background-color 0.15s;
 }
 
-p {
-    margin-top: 10px;
+input::placeholder {
+    color: #94a3b0;
 }
 
-span {
-    font-weight: bold;
-    color: #2c3e50;
+input:hover {
+    border-color: #a9b8c4;
 }
 
-.buttons {
-    margin-top: 20px;
+input:focus {
+    outline: none;
+    background-color: #ffffff;
+    border-color: var(--verde-andino);
+    box-shadow: 0 0 0 3px rgba(31, 122, 122, 0.22);
+}
+
+/* ---------- Filas de resultados ---------- */
+
+.resumen {
+    margin-top: 4px;
+    border-top: 1px solid var(--borde);
+}
+
+.resumen p {
     display: flex;
     justify-content: space-between;
+    align-items: baseline;
+    gap: 12px;
+    margin: 0;
+    padding: 10px 0;
+    border-bottom: 1px solid var(--borde);
+    color: var(--tinta-suave);
 }
 
-button {
-    width: 48%;
-    padding: 10px;
-    border: none;
-    border-radius: 5px;
-    background-color: #3498db;
-    color: white;
-    font-weight: bold;
+.resumen span {
+    min-width: 2ch;
+    font-weight: 700;
+    text-align: right;
+    color: var(--azul-noche);
+    font-variant-numeric: tabular-nums;
+}
+
+.resumen .destacado {
+    color: var(--azul-noche);
+    font-weight: 600;
+}
+
+.resumen .destacado span {
+    font-family: var(--fuente-titulo);
+    font-size: 24px;
+    color: var(--verde-andino);
+}
+
+/* ---------- Estado del crédito ---------- */
+
+.estado {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    margin: 16px 0 0;
+    font-weight: 600;
+    color: var(--azul-noche);
+}
+
+.estado span {
+    padding: 6px 14px;
+    border-radius: 999px;
+    background-color: #fff4dc;
+    border: 1px solid #ecd49a;
+    color: #7a5a14;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0.03em;
+    text-align: center;
+}
+
+/* ---------- Botones ---------- */
+
+.buttons {
+    display: flex;
+    gap: 12px;
+    margin-top: 6px;
+}
+
+.btn {
+    flex: 1;
+    padding: 12px 14px;
+    font: inherit;
+    font-weight: 700;
+    border-radius: 8px;
     cursor: pointer;
+    transition: background-color 0.15s, color 0.15s, border-color 0.15s, transform 0.1s;
 }
 
-button:hover {
-    background-color: #2980b9;
+.btn:active {
+    transform: translateY(1px);
+}
+
+.btn-primary {
+    color: #ffffff;
+    background-color: var(--azul-noche);
+    border: 2px solid var(--azul-noche);
+}
+
+.btn-primary:hover {
+    background-color: var(--azul-medio);
+    border-color: var(--azul-medio);
+}
+
+.btn-secondary {
+    color: var(--azul-noche);
+    background-color: transparent;
+    border: 2px solid var(--borde);
+}
+
+.btn-secondary:hover {
+    border-color: var(--oro);
+    background-color: #fffaf0;
+}
+
+.btn:focus-visible,
+.brand:focus-visible {
+    outline: 3px solid var(--oro);
+    outline-offset: 2px;
+}
+
+/* ---------- Pie ---------- */
+
+.pie p {
+    margin: 8px 0 0;
+    font-size: 13px;
+    text-align: center;
+    color: var(--tinta-suave);
+}
+
+/* ---------- Adaptación a pantallas pequeñas ---------- */
+
+@media (max-width: 480px) {
+    :root {
+        --logo-size: 38px;
+    }
+
+    .hero {
+        padding-bottom: 96px;
+    }
+
+    .panel {
+        padding: 18px;
+    }
+
+    .grid-2 {
+        grid-template-columns: 1fr;
+        gap: 0;
+    }
+
+    .buttons {
+        flex-direction: column;
+    }
+
+    .estado {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    * {
+        transition: none !important;
+    }
 }

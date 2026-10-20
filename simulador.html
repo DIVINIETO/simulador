@@ -4,7 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Simulador de Crédito</title>
+    <meta name="theme-color" content="#0E2A47">
+    <title>Simulador de Crédito | Banco Andino</title>
     <link rel="stylesheet" href="simulador.css">
     <script src="funciones.js"></script>
     <script src="simulador.js"></script>
@@ -13,39 +14,96 @@
 
 <body>
 
-    <div class="container">
-        <h1>Simulador de Crédito</h1>
+    <header class="topbar">
+        <a class="brand" href="#" aria-label="Banco Andino">
+            <!-- Logotipo: dos cumbres andinas y una moneda dorada como sol naciente -->
+            <svg class="brand-mark" viewBox="0 0 64 64" role="img" aria-hidden="true" focusable="false">
+                <circle class="lg-coin" cx="47" cy="17" r="8" />
+                <circle class="lg-coin-ring" cx="47" cy="17" r="4.5" />
+                <path class="lg-back" d="M22 50 L40 22 L61 50 Z" />
+                <path class="lg-front" d="M3 54 L27 12 L51 54 Z" />
+                <path class="lg-snow" d="M27 12 L20.6 23.2 L24 21.6 L27 25.4 L30 21.6 L33.4 23.2 Z" />
+                <path class="lg-base" d="M3 58 H61" />
+            </svg>
+            <div class="brand-text">
+                <strong>Banco Andino</strong>
+                <small>Simulador de crédito</small>
+            </div>
+        </a>
+    </header>
 
-        <h2>Datos financieros</h2>
-        <label for="txtIngresos">Ingresos:</label>
-        <input type="text" id="txtIngresos">
+    <section class="hero">
+        <h1>Calcula tu crédito en un minuto</h1>
+        <p>Ingresa tus datos y conoce tu cuota mensual y si tu solicitud es viable.</p>
+    </section>
 
-        <label for="txtEgresos">Egresos:</label>
-        <input type="text" id="txtEgresos">
+    <main class="container">
 
-        <p>Disponible: <span id="spnDisponible"></span></p>
-        <p>Capacidad de pago mensual: <span id="spnCapacidadPago"></span></p>
+        <section class="panel">
+            <h2>Datos financieros</h2>
 
-        <h2>Solicitud de crédito</h2>
-        <label for="txtMonto">Monto:</label>
-        <input type="text" id="txtMonto">
+            <div class="grid-2">
+                <div class="campo">
+                    <label for="txtIngresos">Ingresos</label>
+                    <input type="text" id="txtIngresos" inputmode="decimal" autocomplete="off" placeholder="Ej. 1500">
+                </div>
 
-        <label for="txtPlazo">Plazo en años:</label>
-        <input type="text" id="txtPlazo">
+                <div class="campo">
+                    <label for="txtEgresos">Egresos</label>
+                    <input type="text" id="txtEgresos" inputmode="decimal" autocomplete="off" placeholder="Ej. 900">
+                </div>
+            </div>
 
-        <label for="txtTasaInteres">Tasa de interés:</label>
-        <input type="text" id="txtTasaInteres">
+            <div class="resumen">
+                <p>Disponible: <span id="spnDisponible"></span></p>
+                <p>Capacidad de pago mensual: <span id="spnCapacidadPago"></span></p>
+            </div>
+        </section>
 
-        <p>Interés a pagar: <span id="spnInteresPagar"></span></p>
-        <p>Total préstamo: <span id="spnTotalPrestamo"></span></p>
-        <p>Cuota mensual: <span id="spnCuotaMensual"></span></p>
-        <p>Estado de crédito: <span id="spnEstadoCredito">ANALIZANDO...</span></p>
+        <section class="panel">
+            <h2>Solicitud de crédito</h2>
 
-        <div class="buttons">
-            <button id="btnCalcularCredito" onclick="calcular();">Calcular Crédito</button>
-            <button id="btnReiniciar">Reiniciar</button>
-        </div>
-    </div>
+            <div class="campo">
+                <label for="txtMonto">Monto</label>
+                <input type="text" id="txtMonto" inputmode="decimal" autocomplete="off" placeholder="Ej. 10000">
+            </div>
+
+            <div class="grid-2">
+                <div class="campo">
+                    <label for="txtPlazo">Plazo en años</label>
+                    <input type="text" id="txtPlazo" inputmode="decimal" autocomplete="off" placeholder="Ej. 5">
+                </div>
+
+                <div class="campo">
+                    <label for="txtTasaInteres">Tasa de interés</label>
+                    <input type="text" id="txtTasaInteres" inputmode="decimal" autocomplete="off" placeholder="Ej. 9.5">
+                </div>
+            </div>
+
+            <div class="buttons">
+                <button type="button" class="btn btn-primary" id="btnCalcularCredito" onclick="calcular();">Calcular
+                    crédito</button>
+                <button type="button" class="btn btn-secondary" id="btnReiniciar">Reiniciar</button>
+            </div>
+        </section>
+
+        <section class="panel panel-resultado" aria-live="polite">
+            <h2>Resultado</h2>
+
+            <div class="resumen">
+                <p>Interés a pagar: <span id="spnInteresPagar"></span></p>
+                <p>Total préstamo: <span id="spnTotalPrestamo"></span></p>
+                <p class="destacado">Cuota mensual: <span id="spnCuotaMensual"></span></p>
+            </div>
+
+            <p class="estado">Estado de crédito: <span id="spnEstadoCredito">ANALIZANDO...</span></p>
+        </section>
+
+        <footer class="pie">
+            <p>Simulación referencial. Las condiciones finales dependen de la evaluación de Banco Andino.</p>
+        </footer>
+
+    </main>
 
 </body>
 

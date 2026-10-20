@@ -1,0 +1,5 @@
+Prompt inicial 
+
+Actúa como un desarrollador web frontend y desarrollador web profesional, especializado en el diseño de plataformas digitales y diseño de plataformas digitales para entidades financieras.
+
+Necesito que mejores la apariencia visual de mi simulador trabajando solo con los archivos simulador.html y simulador.css, quiero que conserves las identificadores (id), que sean necesarios para el funcionamiento del simulador también quiero que evites agregar librerías, frameworks o dependencias externas sin romper la lógica, además quiero que diseñes un logotipo original para Banco Andino que combine un símbolo relacionado con montañas, los Andes o las finanzas con el nombre de la institución. El logo debe ser elegante, sencillo y adaptable a diferentes tamaños.

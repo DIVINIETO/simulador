@@ -42,5 +42,14 @@ function calcular() {
     // mostrar en pantalla las cuotas mensuales
     mostrarSpam("spnCuotaMensual", "USD " + cuotaMensual.toFixed(2));
 
+    // invocar a aprobarCredito y guardar el resultado en una variable
+    let aprobado = aprobarCredito(capacidadPago, cuotaMensual);
+
+    // mostrar el mensaje según el resultado
+    if (aprobado) {
+        mostrarSpam("spnEstadoCredito", "CREDITO APROBADO");
+    } else {
+        mostrarSpam("spnEstadoCredito", "CREDITO RECHAZADO");
+    }
 }
 
