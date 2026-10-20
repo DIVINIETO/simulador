@@ -4,21 +4,22 @@
    ========================================================== */
 
 :root {
-    --azul-noche: #0e2a47;
-    --azul-medio: #1b4670;
-    --verde-andino: #1f7a7a;
-    --oro: #c79a3b;
-    --oro-oscuro: #a67c24;
-    --niebla: #eef2f4;
+    --azul-noche: #071b3a;
+    --azul-real: #1649b8;
+    --azul-vivo: #2f7be0;
+    --oro: #e0a526;
+    --oro-claro: #f4c85a;
+    --oro-oscuro: #b57d0e;
+    --niebla: #edf2fa;
     --papel: #ffffff;
-    --tinta: #1c2733;
-    --tinta-suave: #5b6b7a;
-    --borde: #d3dce3;
+    --tinta: #14213a;
+    --tinta-suave: #55657e;
+    --borde: #d0daea;
 
     --fuente-titulo: Georgia, "Times New Roman", serif;
     --fuente-texto: "Segoe UI", system-ui, -apple-system, Roboto, Helvetica, Arial, sans-serif;
 
-    --radio: 12px;
+    --radio: 14px;
     --logo-size: 44px;
 }
 
@@ -41,7 +42,7 @@ body {
 
 .topbar {
     background-color: var(--papel);
-    border-bottom: 3px solid var(--oro);
+    border-bottom: 4px solid var(--oro);
 }
 
 .brand {
@@ -86,7 +87,7 @@ body {
 }
 
 .lg-back {
-    fill: var(--verde-andino);
+    fill: var(--azul-vivo);
 }
 
 .lg-snow {
@@ -114,7 +115,9 @@ body {
 /* ---------- Encabezado con cordillera ---------- */
 
 .hero {
-    background-color: var(--azul-noche);
+    background:
+        radial-gradient(circle at 85% 20%, rgba(47, 123, 224, 0.55), transparent 55%),
+        linear-gradient(135deg, var(--azul-noche) 20%, var(--azul-real) 100%);
     color: #ffffff;
     text-align: center;
     padding: 40px 20px 110px;
@@ -135,7 +138,7 @@ body {
 .hero p {
     margin: 0 auto;
     max-width: 46ch;
-    color: #c4d3e0;
+    color: #cfe0f7;
 }
 
 /* ---------- Contenedor y paneles ---------- */
@@ -150,10 +153,11 @@ body {
 .panel {
     background-color: var(--papel);
     border: 1px solid var(--borde);
+    border-top: 4px solid var(--azul-real);
     border-radius: var(--radio);
     padding: 22px;
     margin-bottom: 16px;
-    box-shadow: 0 6px 18px rgba(14, 42, 71, 0.08);
+    box-shadow: 0 10px 26px rgba(7, 27, 58, 0.12);
 }
 
 .panel h2 {
@@ -183,7 +187,7 @@ label {
     margin-bottom: 6px;
     font-size: 14px;
     font-weight: 600;
-    color: var(--tinta);
+    color: var(--azul-noche);
 }
 
 input {
@@ -191,25 +195,25 @@ input {
     padding: 11px 12px;
     font: inherit;
     color: var(--tinta);
-    background-color: #fafcfd;
+    background-color: #f7f9fd;
     border: 1px solid var(--borde);
     border-radius: 8px;
-    transition: border-color 0.15s, box-shadow 0.15s, background-color 0.15s;
+    transition: border-color 0.2s, box-shadow 0.2s, background-color 0.2s;
 }
 
 input::placeholder {
-    color: #94a3b0;
+    color: #8c9bb3;
 }
 
 input:hover {
-    border-color: #a9b8c4;
+    border-color: var(--azul-vivo);
 }
 
 input:focus {
     outline: none;
     background-color: #ffffff;
-    border-color: var(--verde-andino);
-    box-shadow: 0 0 0 3px rgba(31, 122, 122, 0.22);
+    border-color: var(--azul-real);
+    box-shadow: 0 0 0 3px rgba(47, 123, 224, 0.28);
 }
 
 /* ---------- Filas de resultados ---------- */
@@ -238,15 +242,22 @@ input:focus {
     font-variant-numeric: tabular-nums;
 }
 
+/* Cuota mensual: bloque protagonista del resultado */
 .resumen .destacado {
-    color: var(--azul-noche);
+    margin-top: 14px;
+    padding: 14px 16px;
+    border: 0;
+    border-radius: 10px;
+    background: linear-gradient(135deg, var(--azul-noche), var(--azul-real));
+    color: #ffffff;
     font-weight: 600;
+    box-shadow: 0 6px 16px rgba(22, 73, 184, 0.3);
 }
 
 .resumen .destacado span {
     font-family: var(--fuente-titulo);
-    font-size: 24px;
-    color: var(--verde-andino);
+    font-size: 26px;
+    color: var(--oro-claro);
 }
 
 /* ---------- Estado del crédito ---------- */
@@ -264,9 +275,9 @@ input:focus {
 .estado span {
     padding: 6px 14px;
     border-radius: 999px;
-    background-color: #fff4dc;
-    border: 1px solid #ecd49a;
-    color: #7a5a14;
+    background-color: #fff3d1;
+    border: 1px solid var(--oro);
+    color: #7a5208;
     font-size: 14px;
     font-weight: 700;
     letter-spacing: 0.03em;
@@ -282,45 +293,75 @@ input:focus {
 }
 
 .btn {
+    position: relative;
+    overflow: hidden;
     flex: 1;
-    padding: 12px 14px;
+    padding: 13px 14px;
     font: inherit;
     font-weight: 700;
-    border-radius: 8px;
+    letter-spacing: 0.02em;
+    border-radius: 10px;
     cursor: pointer;
-    transition: background-color 0.15s, color 0.15s, border-color 0.15s, transform 0.1s;
+    transition: transform 0.25s ease, box-shadow 0.25s ease,
+        background-size 0.35s ease, color 0.25s ease, border-color 0.25s ease;
+}
+
+.btn:hover {
+    transform: translateY(-3px) scale(1.03);
 }
 
 .btn:active {
-    transform: translateY(1px);
+    transform: translateY(0) scale(0.97);
+    transition-duration: 0.08s;
 }
 
+/* Principal: dorado con destello que cruza el botón */
 .btn-primary {
-    color: #ffffff;
-    background-color: var(--azul-noche);
-    border: 2px solid var(--azul-noche);
+    color: var(--azul-noche);
+    background: linear-gradient(135deg, var(--oro-claro), var(--oro));
+    border: 2px solid var(--oro);
+    box-shadow: 0 4px 12px rgba(224, 165, 38, 0.35);
+}
+
+.btn-primary::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -80%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.75), transparent);
+    transform: skewX(-22deg);
+    transition: left 0.6s ease;
+    pointer-events: none;
 }
 
 .btn-primary:hover {
-    background-color: var(--azul-medio);
-    border-color: var(--azul-medio);
+    box-shadow: 0 10px 22px rgba(224, 165, 38, 0.55);
+    border-color: var(--oro-oscuro);
 }
 
+.btn-primary:hover::after {
+    left: 130%;
+}
+
+/* Secundario: el fondo azul se desliza de izquierda a derecha */
 .btn-secondary {
-    color: var(--azul-noche);
-    background-color: transparent;
-    border: 2px solid var(--borde);
+    color: var(--azul-real);
+    background: linear-gradient(var(--azul-real), var(--azul-real)) no-repeat left center / 0% 100%;
+    border: 2px solid var(--azul-real);
 }
 
 .btn-secondary:hover {
-    border-color: var(--oro);
-    background-color: #fffaf0;
+    background-size: 100% 100%;
+    color: #ffffff;
+    box-shadow: 0 10px 22px rgba(22, 73, 184, 0.35);
 }
 
 .btn:focus-visible,
 .brand:focus-visible {
-    outline: 3px solid var(--oro);
-    outline-offset: 2px;
+    outline: 3px solid var(--azul-vivo);
+    outline-offset: 3px;
 }
 
 /* ---------- Pie ---------- */
@@ -365,5 +406,14 @@ input:focus {
 @media (prefers-reduced-motion: reduce) {
     * {
         transition: none !important;
+    }
+
+    .btn:hover,
+    .btn:active {
+        transform: none;
+    }
+
+    .btn-primary::after {
+        display: none;
     }
 }
