@@ -30,5 +30,10 @@ function calcular() {
     // mostrar en pantalla el interes a pagar
     mostrarSpam("spnInteresPagar", "USD " + interes.toFixed(2));
 
+    // invocar a calcularTotalPagar con el monto y el interés que ya tenemos
+    let total = calcularTotalPagar(monto, interes);
+
+    // mostrar en pantalla el total del prestamo
+    mostrarSpam("spnTotalPrestamo", "USD " + total.toFixed(2));
 }
 
