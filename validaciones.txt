@@ -1,0 +1,9 @@
+Quiero que me ayudes a agregar validaciones a mi simulador de crédito de Banco Andino usando HTML, CSS y JavaScript.
+
+Necesito que los campos sean obligatorios, que solo acepten números, que no permitan valores negativos y que tengan límites máximos y mínimos. También quiero que los egresos no sean mayores que los ingresos.
+
+Los errores deben aparecer debajo de cada campo, en color rojo y cursiva, sin utilizar alert(). Quiero que se validen los campos cuando salga de ellos usando el evento `blur` y también cuando presione el botón de calcular. Si hay errores, no se debe realizar el cálculo.
+
+Conserva los IDs existentes, la función `calcular()`, el botón de reiniciar y el diseño responsive. No agregues librerías externas ni cambies la lógica que ya funciona.
+
+Dame solamente las partes que debo agregar o modificar en HTML, CSS y JavaScript, y explícame dónde colocarlas. También ayúdame a preparar el archivo `validaciones.txt` con los prompts utilizados.

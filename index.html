@@ -42,15 +42,20 @@
         <section class="panel">
             <h2>Datos financieros</h2>
 
+            <!-- Dentro de "Datos financieros" -->
             <div class="grid-2">
                 <div class="campo">
                     <label for="txtIngresos">Ingresos</label>
-                    <input type="text" id="txtIngresos" inputmode="decimal" autocomplete="off" placeholder="Ej. 1500">
+                    <input type="text" id="txtIngresos" inputmode="decimal" autocomplete="off" placeholder="Ej. 1500"
+                        aria-describedby="errTxtIngresos">
+                    <small class="error-msg" id="errTxtIngresos" aria-live="polite"></small>
                 </div>
 
                 <div class="campo">
                     <label for="txtEgresos">Egresos</label>
-                    <input type="text" id="txtEgresos" inputmode="decimal" autocomplete="off" placeholder="Ej. 900">
+                    <input type="text" id="txtEgresos" inputmode="decimal" autocomplete="off" placeholder="Ej. 900"
+                        aria-describedby="errTxtEgresos">
+                    <small class="error-msg" id="errTxtEgresos" aria-live="polite"></small>
                 </div>
             </div>
 
@@ -65,24 +70,30 @@
 
             <div class="campo">
                 <label for="txtMonto">Monto</label>
-                <input type="text" id="txtMonto" inputmode="decimal" autocomplete="off" placeholder="Ej. 10000">
+                <input type="text" id="txtMonto" inputmode="decimal" autocomplete="off" placeholder="Ej. 10000"
+                    aria-describedby="errTxtMonto">
+                <small class="error-msg" id="errTxtMonto" aria-live="polite"></small>
             </div>
 
             <div class="grid-2">
                 <div class="campo">
                     <label for="txtPlazo">Plazo en años</label>
-                    <input type="text" id="txtPlazo" inputmode="decimal" autocomplete="off" placeholder="Ej. 5">
+                    <input type="text" id="txtPlazo" inputmode="decimal" autocomplete="off" placeholder="Ej. 5"
+                        aria-describedby="errTxtPlazo">
+                    <small class="error-msg" id="errTxtPlazo" aria-live="polite"></small>
                 </div>
 
                 <div class="campo">
                     <label for="txtTasaInteres">Tasa de interés</label>
-                    <input type="text" id="txtTasaInteres" inputmode="decimal" autocomplete="off" placeholder="Ej. 9.5">
+                    <input type="text" id="txtTasaInteres" inputmode="decimal" autocomplete="off" placeholder="Ej. 9.5"
+                        aria-describedby="errTxtTasaInteres">
+                    <small class="error-msg" id="errTxtTasaInteres" aria-live="polite"></small>
                 </div>
             </div>
 
             <div class="buttons">
-                <button type="button" class="btn btn-primary" id="btnCalcularCredito" onclick="calcular();">Calcular
-                    crédito</button>
+                <button type="button" class="btn btn-primary" id="btnCalcularCredito"
+                    onclick="validarYCalcular();">Calcular crédito</button>
                 <button type="button" class="btn btn-secondary" id="btnReiniciar"
                     onclick="reiniciar();">Reiniciar</button>
             </div>
@@ -105,7 +116,7 @@
         </footer>
 
     </main>
-
+    <script src="validaciones.js"></script>
 </body>
 
 </html>
